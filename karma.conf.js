@@ -1,6 +1,6 @@
 var path = require('path');
 var webpackConfig = require('./webpack.config');
-console.log(webpackConfig);
+
 module.exports = function (config) {
   config.set({
     autoWatch: true,
@@ -18,15 +18,7 @@ module.exports = function (config) {
       resolve: {
         extensions: ['', '.js']
       },
-      module: {
-        loaders: [
-          {
-            test: /\.js$/,
-            loaders: ['babel?optional[]=runtime&stage=1'],
-            exclude: /node_modules/
-          }
-        ]
-      }
+      module: webpackConfig.module
     },
     webpackMiddleware: {
       watchOptions: { poll: true },
