@@ -5,11 +5,10 @@ import ReactDom from "react-dom";
 class App extends React.Component {
   render() {
     return (
-      <p>Hello!</p>
+      <p>Hi!</p>
     );
   }
 }
-
 
 ReactDom.render(
   <App />,
