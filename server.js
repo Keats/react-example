@@ -8,7 +8,8 @@ new WebpackDevServer(webpack(config), {
   hot: true,
   historyApiFallback: true,
   watchOptions: {
-    aggregateTimeout: 300
+    aggregateTimeout: 300,
+    poll: true
   },
   stats: {
     colors: true,
