@@ -1,3 +1,10 @@
 # react-example
 [![Build Status](https://travis-ci.org/Keats/react-example.svg?branch=master)](https://travis-ci.org/Keats/react-example)
 [![Dependency Status](https://david-dm.org/Keats/react-example.svg)](https://david-dm.org/Keats/react-example)
+
+
+TODOS:
+
+- eslint loader
+- basic app demo (with immutablejs)
+- try flow
