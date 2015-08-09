@@ -11,5 +11,11 @@
   ],
   "rules": {
     "quotes": [1, "double"],
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "new-cap": [2, {
+      "newIsCap": true,
+      "newIsCap": true,
+      "capIsNew": false
+    }],
   }
 }

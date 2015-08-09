@@ -1,16 +1,23 @@
 import React from "react";
 import ReactDom from "react-dom";
+import { Provider } from "react-redux";
+
+import store from "./store";
+import ListContainer from "./components/listContainer";
 
 
 class App extends React.Component {
   render() {
     return (
-      <p>Hi!</p>
+      <div>
+        <p>Hi!</p>
+        <ListContainer />
+      </div>
     );
   }
 }
 
 ReactDom.render(
-  <App />,
+  <Provider store={store}>{() => <App />}</Provider>,
   document.getElementById("container")
 );

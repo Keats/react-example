@@ -4,10 +4,10 @@
   "description": "A react example",
   "scripts": {
     "clean": "rm -rf dist && rm -rf build",
-    "build": "npm run clean && npm run lint && webpack",
+    "build": "npm run clean && npm run lint && npm run sass && webpack",
     "dist": "NODE_ENV=production npm run build",
     "lint": "eslint src",
-    "dev": "./bin/dev",
+    "start": "./bin/dev",
     "test": "karma start --single-run",
     "test-watch": "karma start",
     "sass": "gulp sass",
@@ -31,8 +31,8 @@
     "chai": "^3.2.0",
     "eslint": "^1.0.0",
     "eslint-config-airbnb": "0.0.7",
-    "eslint-loader": "^0.14.2",
-    "eslint-plugin-react": "^3.2.0",
+    "eslint-loader": "^1.0.0",
+    "eslint-plugin-react": "git@github.com:Keats/eslint-plugin-react.git#master",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-load-plugins": "^1.0.0-rc.1",
@@ -49,12 +49,14 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
+    "immutable": "^3.7.4",
     "lodash": "^3.10.0",
     "react": "^0.14.0-beta2",
     "react-dom": "^0.14.0-beta3",
-    "react-redux": "^0.2.2",
+    "react-redux": "^0.6.0",
     "react-router": "^1.0.0-beta3",
     "redux": "^1.0.0-rc",
-    "redux-react-router": "^0.2.1"
+    "redux-react-router": "^0.2.1",
+    "redux-thunk": "^0.1.0"
   }
 }
