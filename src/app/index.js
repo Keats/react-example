@@ -10,7 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <p>Hi!</p>
+        <h1>A fake kanban app</h1>
         <ListContainer />
       </div>
     );
