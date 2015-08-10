@@ -1,11 +1,15 @@
 import {
   createStore, applyMiddleware, combineReducers
 } from "redux";
+import { routerStateReducer } from "redux-react-router";
 import thunk from "redux-thunk";
 import * as reducers from "./reducers/index";
 
 
-const reducer = combineReducers(reducers);
+const reducer = combineReducers({
+  router: routerStateReducer,
+  ...reducers,
+});
 const middlewares = [thunk];
 const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
 

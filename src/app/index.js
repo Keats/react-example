@@ -1,6 +1,8 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import ReactDom from "react-dom";
-import { Provider } from "react-redux";
+import { Router, Route, Link } from "react-router";
+import { history } from "react-router/lib/BrowserHistory";
+import { reduxRouteComponent } from "redux-react-router";
 
 import store from "./store";
 import ListContainer from "./components/listContainer";
@@ -8,16 +10,36 @@ import ListContainer from "./components/listContainer";
 
 class App extends React.Component {
   render() {
+    let content = <ListContainer />;
+    if (this.props.children) {
+      content = <p>Check the github repo: https://github.com/Keats/react-example</p>;
+    }
     return (
       <div>
         <h1>A fake kanban app</h1>
-        <ListContainer />
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+        </ul>
+        <hr/>
+        {content}
       </div>
     );
   }
 }
 
-ReactDom.render(
-  <Provider store={store}>{() => <App />}</Provider>,
-  document.getElementById("container")
+App.propTypes = {
+  children: PropTypes.element,
+};
+
+const routes = (
+  <Router history={history}>
+    <Route component={reduxRouteComponent(store)}>
+      <Route path="/" component={App}>
+        <Route path="about" component={App} />
+      </Route>
+    </Route>
+  </Router>
 );
+
+ReactDom.render(routes, document.getElementById("container"));
