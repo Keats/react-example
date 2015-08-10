@@ -2,7 +2,6 @@ import Immutable from "immutable";
 import React, { PropTypes } from "react";
 import { connect } from "react-redux";
 
-import * as actionCreators from "../actionCreators/lists";
 import List from "./list";
 import EmptyList from "./emptyList";
 
@@ -13,7 +12,7 @@ class ListContainer extends React.Component {
     this.props.lists.forEach(list => {
       lists.push(<List key={list.id} list={list} />);
     });
-    lists.push(<EmptyList key="empty" addList={this.props.addList} />);
+    lists.push(<EmptyList key="empty" />);
     return lists;
   }
 
@@ -31,7 +30,6 @@ class ListContainer extends React.Component {
 
 ListContainer.propTypes = {
   lists: PropTypes.instanceOf(Immutable.Map).isRequired,
-  addList: PropTypes.func.isRequired,
 };
 
 
@@ -41,10 +39,4 @@ function mapState(state) {
   };
 }
 
-function mapActionCreators(dispatch) {
-  return {
-    addList: (name) => dispatch(actionCreators.addList(name)),
-  };
-}
-
-export default connect(mapState, mapActionCreators)(ListContainer);
+export default connect(mapState)(ListContainer);

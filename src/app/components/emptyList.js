@@ -1,5 +1,7 @@
 import React, { PropTypes } from "react";
+import { connect } from "react-redux";
 
+import * as listActionCreators from "../actionCreators/lists";
 import AddForm from "./addForm";
 
 
@@ -21,4 +23,10 @@ EmptyList.propTypes = {
   addList: PropTypes.func.isRequired,
 };
 
-export default EmptyList;
+function mapActionCreators(dispatch) {
+  return {
+    addList: (name) => dispatch(listActionCreators.addList(name)),
+  };
+}
+
+export default connect(null, mapActionCreators)(EmptyList);

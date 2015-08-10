@@ -20,10 +20,22 @@
 
 .list__name {
   margin: 0;
+  margin-bottom: 1rem;
 }
 
 .addForm {
   input[type="text"] {
     width: 100%;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 1rem;
+
+  h3 {
+    margin: 0;
   }
 }
