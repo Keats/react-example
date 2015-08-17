@@ -35,7 +35,6 @@
     "eslint-plugin-react": "^3.2.2",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^2.3.1",
-    "gulp-load-plugins": "^1.0.0-rc.1",
     "gulp-sass": "^2.0.4",
     "html-webpack-plugin": "^1.6.1",
     "karma": "^0.13.8",
@@ -51,7 +50,7 @@
   "dependencies": {
     "immutable": "^3.7.4",
     "lodash": "^3.10.0",
-    "react": "^0.14.0-beta2",
+    "react": "^0.14.0-beta3",
     "react-dom": "^0.14.0-beta3",
     "react-redux": "^0.8.0",
     "react-router": "^1.0.0-beta3",
