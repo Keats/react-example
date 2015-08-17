@@ -9,15 +9,15 @@ const Card = Immutable.Record({id: -1, name: "Unknown"});
 const initialState = Immutable.fromJS({});
 
 
-function createCard(state, payload) {
-  const { id, name} = payload;
+function createCard(state, action) {
+  const { id, name } = action.payload;
   return state.set(id, new Card({id, name}));
 }
 
 export default function cards(state = initialState, action) {
   switch (action.type) {
     case CREATE_CARD:
-      return createCard(state, action.payload);
+      return createCard(state, action);
     default:
       return state;
   }

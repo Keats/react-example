@@ -5,7 +5,7 @@ import {
 } from "../constants/actionTypes";
 
 
-const List = Immutable.Record(
+export const List = Immutable.Record(
   {
     id: -1,
     name: "Unknown",
@@ -22,7 +22,7 @@ function createList(state, payload) {
 
 function createCard(state, payload) {
   const { id, columnId } = payload;
-  return state.updateIn([columnId, "cards"], cards => cards.push(id));
+  return state.updateIn([String(columnId), "cards"], cards => cards.push(id));
 }
 
 
