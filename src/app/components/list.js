@@ -10,13 +10,9 @@ import Card from "./card";
 
 class List extends React.Component {
   renderCards() {
-    if (this.props.cards === undefined) {
-      return null;
-    }
-
     const cards = [];
     this.props.cards.forEach((card) => {
-      cards.push(<Card name={card.name} />);
+      cards.push(<Card key={card.id} name={card.name} />);
     });
     return cards;
   }
@@ -60,7 +56,7 @@ function mapActionCreators(dispatch) {
 function merge(state, actions, props) {
   return {
     ...props,
-    cards: state.cards.get(props.list.id),
+    cards: props.list.cards.map(cardId => state.cards.get(cardId)),
     addCard: (name) => actions.cardActions.addCard(props.list.id, name),
   };
 }
