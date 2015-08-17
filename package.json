@@ -32,7 +32,7 @@
     "eslint": "^1.0.0",
     "eslint-config-airbnb": "0.0.7",
     "eslint-loader": "^1.0.0",
-    "eslint-plugin-react": "git@github.com:Keats/eslint-plugin-react.git#master",
+    "eslint-plugin-react": "^3.2.2",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-load-plugins": "^1.0.0-rc.1",
@@ -55,7 +55,7 @@
     "react-dom": "^0.14.0-beta3",
     "react-redux": "^0.8.0",
     "react-router": "^1.0.0-beta3",
-    "redux": "^1.0.0-rc",
+    "redux": "^1.0.0",
     "redux-react-router": "^0.2.1",
     "redux-thunk": "^0.1.0"
   }
