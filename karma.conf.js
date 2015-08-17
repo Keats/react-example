@@ -9,7 +9,7 @@ module.exports = function (config) {
     reporters: ['dots'],
     browsers: ['Firefox'],
     files: [
-    'src/tests/index.js'
+      'src/tests/index.js'
     ],
     preprocessors: {
       'src/tests/index.js': ['webpack']
@@ -21,6 +21,7 @@ module.exports = function (config) {
       module: webpackConfig.module
     },
     webpackMiddleware: {
+      noInfo: true,
       watchOptions: { poll: true },
       stats: {
         color: true,
