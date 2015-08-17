@@ -43,6 +43,7 @@
     "karma-mocha": "^0.2.0",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.2.5",
+    "react-addons-test-utils": "^0.14.0-beta3",
     "react-hot-loader": "^1.2.8",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"

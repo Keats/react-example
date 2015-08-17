@@ -8,7 +8,7 @@ describe("Components: addForm", () => {
   let TestUtils;
 
   beforeEach(() => {
-    TestUtils = require("react/lib/ReactTestUtils");
+    TestUtils = require("react-addons-test-utils");
   });
 
   it("should render", () => {
