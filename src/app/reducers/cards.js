@@ -11,7 +11,7 @@ const initialState = Immutable.fromJS({});
 
 function createCard(state, action) {
   const { id, name } = action.payload;
-  return state.set(id, new Card({id, name}));
+  return state.set(String(id), new Card({id, name}));
 }
 
 export default function cards(state = initialState, action) {
