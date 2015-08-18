@@ -16,7 +16,7 @@ const initialState = Immutable.fromJS({});
 
 
 function createList(state, payload) {
-  return state.set(payload.id, new List(payload));
+  return state.set(String(payload.id), new List(payload));
 }
 
 

@@ -1,6 +1,5 @@
 import React, { PropTypes } from "react";
 import Immutable from "immutable";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import * as cardActionCreators from "../actionCreators/cards";
@@ -41,24 +40,16 @@ List.propTypes = {
 };
 
 
-function mapState(state) {
+function mapState(state, ownProps) {
   return {
-    cards: state.cards,
+    cards: ownProps.list.cards.map(cardId => state.cards.get(cardId)),
   };
 }
 
-function mapActionCreators(dispatch) {
+function mapActionCreators(dispatch, ownProps) {
   return {
-    cardActions: bindActionCreators(cardActionCreators, dispatch),
+    addCard: (name) => dispatch(cardActionCreators.addCard(ownProps.list.id, name)),
   };
 }
 
-function merge(state, actions, props) {
-  return {
-    ...props,
-    cards: props.list.cards.map(cardId => state.cards.get(cardId)),
-    addCard: (name) => actions.cardActions.addCard(props.list.id, name),
-  };
-}
-
-export default connect(mapState, mapActionCreators, merge)(List);
+export default connect(mapState, mapActionCreators)(List);
