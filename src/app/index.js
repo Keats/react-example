@@ -9,6 +9,19 @@ import ListContainer from "./components/listContainer";
 
 
 class App extends React.Component {
+  renderDevTools() {
+    if (__PRODUCTION__) {
+      return null;
+    }
+
+    const { DevTools, DebugPanel, LogMonitor } = require("redux-devtools/lib/react");
+    return (
+      <DebugPanel top right bottom key="debugPanel">
+        <DevTools store={store} monitor={LogMonitor}/>
+      </DebugPanel>
+    );
+  }
+
   render() {
     let content = <ListContainer />;
     if (this.props.children) {
@@ -23,6 +36,7 @@ class App extends React.Component {
         </ul>
         <hr/>
         {content}
+        {this.renderDevTools()}
       </div>
     );
   }
