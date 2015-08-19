@@ -4,26 +4,22 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 
 module.exports = {
-  devtool: "eval",
+  devtool: "source-map",
   entry: [
-    "webpack-dev-server/client?http://localhost:3000",
-    "webpack/hot/only-dev-server",
     "./src/app/index"
   ],
   output: {
-    path: path.join(__dirname, "build"),
+    path: path.join(__dirname, "dist"),
     filename: "app.js",
-    publicPath: "/build/"
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
-      __PRODUCTION__: false,
+      __PRODUCTION__: true,
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html"
-    })
+  })
   ],
   module: {
     preLoaders: [
@@ -36,7 +32,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ["react-hot", "babel?optional[]=runtime&stage=1"],
+        loaders: ["babel?optional[]=runtime&stage=1"],
         exclude: /node_modules/
       }
     ]

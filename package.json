@@ -4,8 +4,9 @@
   "description": "A react example",
   "scripts": {
     "clean": "rm -rf dist && rm -rf build",
+    "webpack:prod": "webpack -p --config webpack.production.config.js",
     "build": "npm run clean && npm run lint && npm run sass && webpack",
-    "dist": "NODE_ENV=production npm run build",
+    "dist": "npm run clean && npm run lint && NODE_ENV=production npm run sass && npm run webpack:prod",
     "lint": "eslint src",
     "start": "./bin/dev",
     "test": "karma start --single-run",
