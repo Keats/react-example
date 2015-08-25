@@ -42,7 +42,7 @@ List.propTypes = {
 
 function mapState(state, ownProps) {
   return {
-    cards: ownProps.list.cards.map(cardId => state.cards.get(cardId)),
+    cards: ownProps.list.cards.map(cardId => state.cards.get(String(cardId))),
   };
 }
 
