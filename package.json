@@ -35,7 +35,7 @@
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^3.2.2",
     "gulp": "gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "^2.3.1",
+    "gulp-autoprefixer": "^3.0.1",
     "gulp-sass": "^2.0.4",
     "html-webpack-plugin": "^1.6.1",
     "karma": "^0.13.8",
@@ -46,18 +46,19 @@
     "mocha": "^2.2.5",
     "react-addons-test-utils": "^0.14.0-beta3",
     "react-hot-loader": "^1.2.8",
-    "redux-devtools": "^1.0.2",
+    "redux-devtools": "^2.1.0",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
+    "history": "^1.8.4",
     "immutable": "^3.7.4",
     "react": "^0.14.0-beta3",
     "react-dom": "^0.14.0-beta3",
-    "react-redux": "^1.0.0",
-    "react-router": "^1.0.0-beta3",
-    "redux": "^1.0.0",
-    "redux-react-router": "^0.4.0",
+    "react-redux": "^2.1.1",
+    "react-router": "git+https://github.com/acdlite/react-router.git#d8a41c86090ee661bc19b93c0a9169db510c46d8",
+    "redux": "^2.0.0",
+    "redux-react-router": "1.0.0-alpha1",
     "redux-thunk": "^0.1.0"
   }
 }
