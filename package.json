@@ -53,12 +53,12 @@
   "dependencies": {
     "history": "^1.8.4",
     "immutable": "^3.7.4",
-    "react": "^0.14.0-beta3",
-    "react-dom": "^0.14.0-beta3",
+    "react": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1",
     "react-redux": "^2.1.1",
-    "react-router": "git+https://github.com/acdlite/react-router.git#d8a41c86090ee661bc19b93c0a9169db510c46d8",
+    "react-router": "1.0.0-rc1",
     "redux": "^2.0.0",
-    "redux-react-router": "1.0.0-alpha1",
+    "redux-react-router": "1.0.0-beta1",
     "redux-thunk": "^0.1.0"
   }
 }
