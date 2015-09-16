@@ -2,9 +2,9 @@
 
 npm run build && node server.js &
 webpack=$!
-npm run test-watch &
+#npm run test-watch &
 karma=$!
-npm run sass-watch &
+#npm run sass-watch &
 gulp=$!
 
 # Getting `invalid signal specification` for some reasons

@@ -28,6 +28,7 @@
     "babel-core": "^5.8.21",
     "babel-eslint": "^4.0.5",
     "babel-loader": "^5.3.2",
+    "babel-plugin-react-transform": "^1.0.3",
     "babel-runtime": "^5.8.20",
     "chai": "^3.2.0",
     "eslint": "^1.0.0",
@@ -45,7 +46,7 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.2.5",
     "react-addons-test-utils": "^0.14.0-beta3",
-    "react-hot-loader": "^1.2.8",
+    "react-transform-webpack-hmr": "^0.1.4",
     "redux-devtools": "^2.1.0",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"

@@ -36,8 +36,20 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ["react-hot", "babel?optional[]=runtime&stage=1"],
-        exclude: /node_modules/
+        loader: "babel",
+        exclude: /node_modules/,
+        query: {
+          optional: ["runtime"],
+          stage: 1,
+          plugins: ["react-transform"],
+          extra: {
+            "react-transform": [{
+              target: "react-transform-webpack-hmr",
+              imports: ["react"],
+              locals: ["module"]
+            }]
+          }
+        }
       }
     ]
   }
