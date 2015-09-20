@@ -1,10 +1,10 @@
 import {
-  createStore, applyMiddleware, combineReducers, compose
+  createStore, applyMiddleware, combineReducers, compose,
 } from "redux";
 import {
   routerStateReducer,
-  reduxReactRouter
-} from "redux-react-router";
+  reduxReactRouter,
+} from "redux-router";
 import createHistory from "history/lib/createBrowserHistory";
 import thunk from "redux-thunk";
 

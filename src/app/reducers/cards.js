@@ -1,7 +1,7 @@
 import Immutable from "immutable";
 
 import {
-  CREATE_CARD
+  CREATE_CARD,
 } from "../constants/actionTypes";
 
 

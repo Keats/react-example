@@ -1,7 +1,7 @@
 import Immutable from "immutable";
 
 import {
-  CREATE_LIST, DELETE_LIST, CREATE_CARD
+  CREATE_LIST, DELETE_LIST, CREATE_CARD,
 } from "../constants/actionTypes";
 
 

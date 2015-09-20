@@ -1,5 +1,5 @@
 import {
-  CREATE_CARD
+  CREATE_CARD,
 } from "../constants/actionTypes";
 
 

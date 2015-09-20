@@ -2,7 +2,7 @@ import { expect } from "chai";
 import Immutable from "immutable";
 
 import {
-  CREATE_LIST, CREATE_CARD
+  CREATE_LIST, CREATE_CARD,
 } from "../../app/constants/actionTypes";
 import lists, { List } from "../../app/reducers/lists";
 

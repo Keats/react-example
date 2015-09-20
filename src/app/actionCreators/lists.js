@@ -1,5 +1,5 @@
 import {
-  CREATE_LIST
+  CREATE_LIST,
 } from "../constants/actionTypes";
 
 
