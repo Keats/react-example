@@ -1,6 +1,10 @@
 var path = require('path');
 var webpackConfig = require('./webpack.config');
 
+// No hot reload for tests!
+var modules = webpackConfig.module;
+modules.loaders[0].query.env = {};
+
 module.exports = function (config) {
   config.set({
     autoWatch: true,
@@ -18,10 +22,9 @@ module.exports = function (config) {
       resolve: {
         extensions: ['', '.js']
       },
-      module: webpackConfig.module
+      module: modules
     },
     webpackMiddleware: {
-      noInfo: true,
       watchOptions: { poll: true },
       stats: {
         color: true,

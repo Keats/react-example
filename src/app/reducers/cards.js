@@ -6,12 +6,12 @@ import {
 
 
 const Card = Immutable.Record({id: -1, name: "Unknown"});
-const initialState = Immutable.fromJS({});
+const initialState = Immutable.Map();
 
 
 function createCard(state, action) {
   const { id, name } = action.payload;
-  return state.set(String(id), new Card({id, name}));
+  return state.set(id, new Card({id, name}));
 }
 
 export default function cards(state = initialState, action) {
@@ -21,4 +21,11 @@ export default function cards(state = initialState, action) {
     default:
       return state;
   }
+}
+
+export function getListCards(state, cardIds) {
+  if (cardIds.size === 0) {
+    return Immutable.List();
+  }
+  return state.cards.filter(card => cardIds.indexOf(card.id) > -1).toList();
 }

@@ -20,7 +20,7 @@ describe("Reducers: lists", () => {
 
     expect(listFound.id).to.equal(list.id);
     expect(listFound.name).to.equal(list.name);
-    expect(listFound.cards).to.be.empty;
+    expect(listFound.cards.length).to.equal(0);
   });
 
   it("should handle CREATE_CARD", () => {
@@ -29,7 +29,7 @@ describe("Reducers: lists", () => {
     const action = {type: CREATE_CARD, payload: card};
     const list = lists(initialState, action).toJS()[0];
 
-    expect(list.cards).to.not.be.empty;
+    expect(list.cards.length).to.not.equal(0);
     expect(list.cards[0]).to.equal(card.id);
   });
 

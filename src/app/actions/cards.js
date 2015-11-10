@@ -5,14 +5,14 @@ import {
 
 let sequence = 0;
 
-export function addCard(columnId, name) {
+export function addCard(listId, name) {
   const id = sequence;
   sequence++;
 
   return {
     type: CREATE_CARD,
     payload: {
-      columnId,
+      listId,
       id,
       name,
     },

@@ -9,22 +9,22 @@ import createHistory from "history/lib/createBrowserHistory";
 import thunk from "redux-thunk";
 
 import * as reducers from "./reducers/index";
-import routes from "./routes";
 
 
 const reducer = combineReducers({
   router: routerStateReducer,
   ...reducers,
 });
-const middlewares = [thunk];
 
+// Thunk middleware allows actions to return a function f instead of a
+// new state. f accepts a `dispatch` and an optional `getState`
+// function to invoke new actions. Used e.g. for async XHR actions.
+// (https://github.com/gaearon/redux-thunk)
+const middlewares = [thunk];
 
 let finalCreateStore;
 
-const reduxRouter = reduxReactRouter({
-  routes,
-  createHistory,
-});
+const reduxRouter = reduxReactRouter({ createHistory });
 
 if (__PRODUCTION__) {
   finalCreateStore = compose(
@@ -51,8 +51,5 @@ export default function configureStore(initialState) {
       store.replaceReducer(nextReducer);
     });
   }
-
   return store;
 }
-
-

@@ -2,14 +2,20 @@ import React, { PropTypes } from "react";
 import Immutable from "immutable";
 import { connect } from "react-redux";
 
-import * as cardActionCreators from "../actionCreators/cards";
-import AddForm from "./addForm";
-import Card from "./card";
+import AddForm from "./AddForm";
+import Card from "./Card";
+import { addCard } from "../actions/cards";
+import { getListCards } from "../reducers/cards";
 
 
 class List extends React.Component {
+  addCard(name) {
+    this.props.addCard(name);
+  }
+
   renderCards() {
     const cards = [];
+    console.log(this.props.cards.toJS());
     this.props.cards.forEach((card) => {
       cards.push(<Card key={card.id} name={card.name} />);
     });
@@ -17,20 +23,15 @@ class List extends React.Component {
   }
 
   render() {
-    const { name } = this.props.list;
+    const { id, name } = this.props.list;
     return (
       <div className="list">
         <h2 className="list__name">{name}</h2>
         {this.renderCards()}
-        <AddForm placeholder="Add a card" callback={this.addCard.bind(this)} />
+        <AddForm placeholder="Add a card" callback={this.props.addCard.bind(null, id)} />
       </div>
     );
   }
-
-  addCard(name) {
-    this.props.addCard(name);
-  }
-
 }
 
 List.propTypes = {
@@ -42,14 +43,11 @@ List.propTypes = {
 
 function mapState(state, ownProps) {
   return {
-    cards: ownProps.list.cards.map(cardId => state.cards.get(String(cardId))),
+    cards: getListCards(state, ownProps.list.cards),
   };
 }
 
-function mapActionCreators(dispatch, ownProps) {
-  return {
-    addCard: (name) => dispatch(cardActionCreators.addCard(ownProps.list.id, name)),
-  };
-}
-
-export default connect(mapState, mapActionCreators)(List);
+export default connect(
+  mapState,
+  { addCard }
+)(List);

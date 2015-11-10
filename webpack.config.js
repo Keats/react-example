@@ -6,31 +6,36 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   devtool: "eval",
   entry: [
-    "webpack-dev-server/client?http://localhost:3000",
-    "webpack/hot/only-dev-server",
-    "./src/app/index"
+    "webpack-hot-middleware/client",
+    "./src/app/index",
   ],
   output: {
     path: path.join(__dirname, "build"),
     filename: "app.js",
-    publicPath: "/build/"
+    publicPath: "/static/"
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
-      __PRODUCTION__: false,
+      __PRODUCTION__: true,
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html"
+    }),
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     })
   ],
   module: {
+    noParse: [
+      /\/sinon.js/
+    ],
     preLoaders: [
       {
-        test: /\.js$/,
-        loader: "eslint-loader",
-        exclude: /node_modules/
+          test: /\.js$/,
+          loader: "eslint-loader",
+          exclude: /node_modules/
       }
     ],
     loaders: [
@@ -38,16 +43,26 @@ module.exports = {
         test: /\.js$/,
         loader: "babel",
         exclude: /node_modules/,
+        include: path.join(__dirname, 'src'),
         query: {
-          optional: ["runtime"],
           stage: 1,
-          plugins: ["react-transform"],
-          extra: {
-            "react-transform": [{
-              target: "react-transform-webpack-hmr",
-              imports: ["react"],
-              locals: ["module"]
-            }]
+          env: {
+            // only enable it when process.env.NODE_ENV is 'development' or undefined
+            development: {
+              plugins: ["react-transform"],
+              extra: {
+                // must be defined and be an object
+                "react-transform": {
+                  transforms: [{
+                    transform: "react-transform-hmr",
+                    // if you use React Native, pass "react-native" instead:
+                    imports: ["react"],
+                    // this is important for Webpack HMR:
+                    locals: ["module"]
+                  }]
+                }
+              }
+            }
           }
         }
       }
