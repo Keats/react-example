@@ -24,8 +24,9 @@ describe("Reducers: lists", () => {
   });
 
   it("should handle CREATE_CARD", () => {
-    const initialState = Immutable.fromJS({0: new List({id: 0})});
-    const card = {id: 42, name: "Card", columnId: 0};
+    let initialState = Immutable.Map();
+    initialState = initialState.set(0, new List({id: 0}));
+    const card = {id: 42, name: "Card", listId: 0};
     const action = {type: CREATE_CARD, payload: card};
     const list = lists(initialState, action).toJS()[0];
 
